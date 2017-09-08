@@ -4,11 +4,11 @@ Usage
 perl bin/insult.pl 
 
 #generate, save to file
-perl bin/insult.pl >out/insult-list.txt
+perl bin/insult.pl >tmp/insult-list.txt
 
 #generate, pick one entry
 perl bin/insult.pl | shuf -n 1
 
 #pick one from generated file
-shuf -n 1 out/insult-list.txt
+shuf -n 1 tmp/insult-list.txt
 
