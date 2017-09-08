@@ -20,7 +20,8 @@ close IN;
 for my $w0(sort keys %adj0){
    for my $w1(sort keys %adj1){
       for my $w2(sort keys %subst0){
-         print "Thou$w0$w1$w2\n";
+         my $rand=int(rand(9000))+1000;
+         print "$w0$w1$w2$rand\n";
       }
    }
 }
