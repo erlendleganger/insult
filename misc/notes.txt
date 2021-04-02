@@ -1,0 +1,9 @@
+English word list
+=================
+Downloaded from http://www.gwicks.net/dictionaries.htm, word list
+with 194.000 words.
+
+Command to split the list into words of different lengths:
+
+for c in $(seq -f "%02g" 3 12); do grep -oP "\b(\w{$c})\b" src/english3.txt|sort -u>src/english3-length-$c.txt; done
+
