@@ -1,12 +1,14 @@
 #!/usr/bin/perl
-# insult.pl - generate passwords from Shakespearean insults, English words
+# passgen.pl - generate passwords from Shakespearean insults, English words
 # or random characters.
 #
 # Each part of the password is picked with a cryptographically secure
 # random source, and the estimated strength (entropy in bits) is printed
 # to STDERR so it does not end up in a pipe or file.
 #
-# Run "perl bin/insult.pl --help" for usage.
+# Run "perl bin/passgen.pl --help" for usage.
+#
+# Rewritten with AI assistance (Claude, Anthropic); reviewed and tested by Erlend Leganger.
 
 use strict;
 use warnings;
@@ -311,7 +313,7 @@ sub report {
 sub usage {
    my ($exit) = @_;
    print <<"END";
-Usage: perl bin/insult.pl [options]
+Usage: perl bin/passgen.pl [options]
 
 Source:
   -s, --source NAME   insult (default), english or random
@@ -348,12 +350,12 @@ The strength estimate is printed to STDERR, so piping or redirecting
 the output only captures the passwords.
 
 Examples:
-  perl bin/insult.pl
-  perl bin/insult.pl -S -n 5
-  perl bin/insult.pl -s english -w 4 -d 2 -S
-  perl bin/insult.pl --fit 20
-  perl bin/insult.pl --fit 20 -w 2
-  perl bin/insult.pl -s random -l 12
+  perl bin/passgen.pl
+  perl bin/passgen.pl -S -n 5
+  perl bin/passgen.pl -s english -w 4 -d 2 -S
+  perl bin/passgen.pl --fit 20
+  perl bin/passgen.pl --fit 20 -w 2
+  perl bin/passgen.pl -s random -l 12
 END
    exit $exit;
 }
