@@ -1,14 +1,16 @@
 Usage
 
-#generate, print on stdout
-perl bin/insult.pl 
+#show all options
+perl bin/insult.pl --help
 
-#generate, save to file
-perl bin/insult.pl >tmp/insult-list.txt
+#one insult password (adjective + adjective + noun + 4 digits)
+perl bin/insult.pl
 
-#generate, pick one entry
-perl bin/insult.pl | shuf -n 1
+#five insult passwords, each ending with a symbol
+perl bin/insult.pl -S -n 5
 
-#pick one from generated file
-shuf -n 1 tmp/insult-list.txt
+#stronger: four English words of 4-8 letters + 4 digits + symbol
+perl bin/insult.pl -s english -S
 
+#save ten passwords to a file (strength line is not included)
+perl bin/insult.pl -n 10 >tmp/passwords.txt
