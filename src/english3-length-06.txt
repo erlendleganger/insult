@@ -3454,7 +3454,6 @@ coucal
 couche
 cougar
 coughs
-couldn
 coulee
 coulis
 counts
@@ -11247,7 +11246,6 @@ ottawa
 otters
 oubits
 ouches
-oughtn
 oughts
 ouijas
 oulong
@@ -18432,7 +18430,6 @@ worthy
 wortle
 wotted
 woubit
-wouldn
 woulfe
 wounds
 woundy

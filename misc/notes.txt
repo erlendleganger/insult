@@ -5,5 +5,8 @@ with 194.000 words.
 
 Command to split the list into words of different lengths:
 
-for c in $(seq -f "%02g" 3 12); do grep -oP "\b(\w{$c})\b" src/english3.txt|sort -u>src/english3-length-$c.txt; done
+for c in $(seq -f "%02g" 3 12); do grep -xE "[a-z]{$((10#$c))}" src/english3.txt | LC_ALL=C sort -u >src/english3-length-$c.txt; done
 
+Only lines made entirely of the letters a-z are kept, so words with
+apostrophes (didn't, entr'acte) are left out instead of being split
+into fragments (didn, entr).
