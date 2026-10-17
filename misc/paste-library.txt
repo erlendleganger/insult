@@ -4,7 +4,7 @@ Strength figures are what the script reports. Rough guide:
 under 40 bits weak, 40-60 moderate, 60+ strong.
 
 #show all options
-perl bin/insult.pl --help
+perl bin/passgen.pl --help
 
 
 Site with a length limit (--fit)
@@ -12,49 +12,49 @@ Site with a length limit (--fit)
 #--fit N: English words + 4 digits + symbol, as many words as fit well
 
 #at most 10 characters: 1 word, ~31 bits (weak, random is better here)
-perl bin/insult.pl --fit 10
+perl bin/passgen.pl --fit 10
 
 #at most 12 characters: 1 word, ~33 bits
-perl bin/insult.pl --fit 12
+perl bin/passgen.pl --fit 12
 
 #at most 16 characters: 2 words, ~47 bits
-perl bin/insult.pl --fit 16
+perl bin/passgen.pl --fit 16
 
 #at most 20 characters: 3 words, ~61 bits
-perl bin/insult.pl --fit 20
+perl bin/passgen.pl --fit 20
 
 #at most 24 characters: 3 words, ~65 bits
-perl bin/insult.pl --fit 24
+perl bin/passgen.pl --fit 24
 
 #at most 32 characters: 4 words, ~82 bits
-perl bin/insult.pl --fit 32
+perl bin/passgen.pl --fit 32
 
 #show 5 and use the one easiest to remember (costs only ~2 bits)
-perl bin/insult.pl --fit 20 -n 5
+perl bin/passgen.pl --fit 20 -n 5
 
 
 Adjusting --fit
 ---------------
 #fewer, longer words: 2 words, ~50 bits
-perl bin/insult.pl --fit 20 -w 2
+perl bin/passgen.pl --fit 20 -w 2
 
 #2 digits instead of 4, leaves room for longer words, ~57 bits
-perl bin/insult.pl --fit 20 -d 2
+perl bin/passgen.pl --fit 20 -d 2
 
 #site does not allow symbols, ~58 bits
-perl bin/insult.pl --fit 20 --no-symbol
+perl bin/passgen.pl --fit 20 --no-symbol
 
 #no symbols and only 2 digits, ~54 bits
-perl bin/insult.pl --fit 20 -d 2 --no-symbol
+perl bin/passgen.pl --fit 20 -d 2 --no-symbol
 
 #no digits (site must not require one), ~52 bits
-perl bin/insult.pl --fit 20 -d 0
+perl bin/passgen.pl --fit 20 -d 0
 
 #only short words, up to 6 letters, ~61 bits
-perl bin/insult.pl --fit 20 --max 6
+perl bin/passgen.pl --fit 20 --max 6
 
 #allow 3-letter words too, ~62 bits
-perl bin/insult.pl --fit 20 --min 3
+perl bin/passgen.pl --fit 20 --min 3
 
 
 Random characters (for a password manager)
@@ -62,40 +62,40 @@ Random characters (for a password manager)
 #always at least one lower, upper, digit and symbol
 
 #16 characters, ~100 bits
-perl bin/insult.pl -s random
+perl bin/passgen.pl -s random
 
 #site limit of 8 characters, ~49 bits (best possible in 8)
-perl bin/insult.pl -s random --fit 8
+perl bin/passgen.pl -s random --fit 8
 
 #site limit of 12 characters, ~75 bits
-perl bin/insult.pl -s random --fit 12
+perl bin/passgen.pl -s random --fit 12
 
 #32 characters, ~200 bits
-perl bin/insult.pl -s random -l 32
+perl bin/passgen.pl -s random -l 32
 
 
 English words, no length limit
 ------------------------------
 #4 words of 4-8 letters + 4 digits + symbol, ~83 bits
-perl bin/insult.pl -s english -S
+perl bin/passgen.pl -s english -S
 
 #3 words, no digits, ~49 bits
-perl bin/insult.pl -s english -w 3 -d 0
+perl bin/passgen.pl -s english -w 3 -d 0
 
 #length cap without --fit defaults: 3 words, 2 digits, max 22 characters, ~55 bits
-perl bin/insult.pl -s english -w 3 -d 2 -m 22
+perl bin/passgen.pl -s english -w 3 -d 2 -m 22
 
 
 Insult words (for fun, weak)
 ----------------------------
 #adjective + adjective + noun + 4 digits, ~31 bits
-perl bin/insult.pl
+perl bin/passgen.pl
 
 #five of them, each ending with a symbol, ~35 bits
-perl bin/insult.pl -S -n 5
+perl bin/passgen.pl -S -n 5
 
 
 Saving to a file
 ----------------
 #ten passwords to a file (strength line is not included)
-perl bin/insult.pl --fit 20 -n 10 >tmp/passwords.txt
+perl bin/passgen.pl --fit 20 -n 10 >tmp/passwords.txt
